@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BenalohCryptosystem\BenalohCryptosystem.csproj" />
+      <ProjectReference Include="..\RC6\RC6.csproj" />
+    </ItemGroup>
+
+</Project>
