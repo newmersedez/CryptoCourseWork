@@ -15,6 +15,19 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
+      "MVVM.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MVVM.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MVVM.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "RC6/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -36,6 +49,11 @@
       "path": "../BenalohCryptosystem/BenalohCryptosystem.csproj",
       "msbuildProject": "../BenalohCryptosystem/BenalohCryptosystem.csproj"
     },
+    "MVVM.Core/1.0.0": {
+      "type": "project",
+      "path": "../MVVM.Core/MVVM.Core.csproj",
+      "msbuildProject": "../MVVM.Core/MVVM.Core.csproj"
+    },
     "RC6/1.0.0": {
       "type": "project",
       "path": "../RC6/RC6.csproj",
@@ -45,11 +63,12 @@
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
       "BenalohCryptosystem >= 1.0.0",
+      "MVVM.Core >= 1.0.0",
       "RC6 >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Дмитрий\\.nuget\\packages\\": {}
+    "C:\\Users\\newmersedez\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -57,11 +76,11 @@
       "projectUniqueName": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\CryptoCourseWork\\CryptoCourseWork.csproj",
       "projectName": "CryptoCourseWork",
       "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\CryptoCourseWork\\CryptoCourseWork.csproj",
-      "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\newmersedez\\.nuget\\packages\\",
       "outputPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\CryptoCourseWork\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\newmersedez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -77,6 +96,9 @@
           "projectReferences": {
             "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\BenalohCryptosystem\\BenalohCryptosystem.csproj": {
               "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\BenalohCryptosystem\\BenalohCryptosystem.csproj"
+            },
+            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj": {
+              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj"
             },
             "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\RC6\\RC6.csproj": {
               "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\RC6\\RC6.csproj"
@@ -103,6 +125,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.17, 5.0.17]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -111,7 +151,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

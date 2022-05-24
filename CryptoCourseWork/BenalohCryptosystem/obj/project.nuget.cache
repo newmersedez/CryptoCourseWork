@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JNGDJrG/XKRdmeFodcVRCPl6B4/8K+JsHbjAmZhLmkNNYywc24RbKSjtbSDk5eUodGZ3+m/wRacc3NjtQ0Ppvw==",
+  "dgSpecHash": "SBanyUSC/49oW+yZjn8ysa8s2vYEEcrnaTIeM3XOx1p8DqU2F8/ULKqsvUNrncQGt2bsN0qMzVKNIeGj0v1kuw==",
   "success": true,
   "projectFilePath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\BenalohCryptosystem\\BenalohCryptosystem.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

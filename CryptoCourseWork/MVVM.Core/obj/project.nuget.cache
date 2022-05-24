@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "uwakDSpGHoRq7SescnK3pfdji8yZIcsRFrGCFbogm2ghio/kD5YxBHtX5VGXVdbeGAyrmUR78V8N30eaFqoJRQ==",
+  "dgSpecHash": "LLYMlizSV3wsjpTEa03P6iWWqwhYR2OlmxRkqnzEZnrCCXhpQs5JgXq+z5bKgbdVUtM5sVJM/X2GxOp9WtEzqA==",
   "success": true,
   "projectFilePath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

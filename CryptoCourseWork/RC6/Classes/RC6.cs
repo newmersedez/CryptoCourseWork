@@ -1,6 +1,8 @@
 ﻿using System;
+using RC6.Interfaces;
+using RC6.Utils;
 
-namespace RC6
+namespace RC6.Classes
 {
     public sealed class RC6: ICrypto
     {

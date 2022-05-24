@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RC6
+﻿namespace RC6.Utils
 {
     internal static class RC6Utils
     {

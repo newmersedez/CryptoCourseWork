@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using RC6.Interfaces;
+using RC6.Utils;
 
-namespace RC6
+namespace RC6.Classes
 {
     public enum EncryptionMode
     {

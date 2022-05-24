@@ -8,7 +8,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BenalohCryptosystem\BenalohCryptosystem.csproj" />
+      <ProjectReference Include="..\MVVM.Core\MVVM.Core.csproj" />
       <ProjectReference Include="..\RC6\RC6.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="MVVM" />
     </ItemGroup>
 
 </Project>

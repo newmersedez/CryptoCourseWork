@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "NFPVaPNSsYLQtdFYmLqHQGijqiyalhBklQzmHB0hBd+44LD29p7WZZNdBwi+ZTsuIClNHR7ttbdkOlr92vgkuA==",
+  "success": true,
+  "projectFilePath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\GRPC.Server\\GRPC.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\newmersedez\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.aspnetcore\\2.46.0\\grpc.aspnetcore.2.46.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.aspnetcore.server\\2.46.0\\grpc.aspnetcore.server.2.46.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.aspnetcore.server.clientfactory\\2.46.0\\grpc.aspnetcore.server.clientfactory.2.46.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.core.api\\2.46.1\\grpc.core.api.2.46.1.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.net.client\\2.46.0\\grpc.net.client.2.46.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.net.clientfactory\\2.46.0\\grpc.net.clientfactory.2.46.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.net.common\\2.46.0\\grpc.net.common.2.46.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\grpc.tools\\2.46.1\\grpc.tools.2.46.1.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.configuration\\3.0.3\\microsoft.extensions.configuration.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.0.3\\microsoft.extensions.configuration.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.0.3\\microsoft.extensions.configuration.binder.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.0.3\\microsoft.extensions.dependencyinjection.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.3\\microsoft.extensions.dependencyinjection.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.http\\3.0.3\\microsoft.extensions.http.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.logging\\3.0.3\\microsoft.extensions.logging.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.options\\3.0.3\\microsoft.extensions.options.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.3\\microsoft.extensions.primitives.3.0.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\system.componentmodel.composition\\6.0.0\\system.componentmodel.composition.6.0.0.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\system.linq.async\\6.0.1\\system.linq.async.6.0.1.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\newmersedez\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

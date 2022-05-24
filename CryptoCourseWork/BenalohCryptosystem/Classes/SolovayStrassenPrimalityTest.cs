@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Numerics;
+using BenalohCryptosystem.Interfaces;
+using BenalohCryptosystem.Utils;
 
-namespace BenalohCryptosystem
+namespace BenalohCryptosystem.Classes
 {
     public sealed class SolovayStrassenPrimalityTest : IPrimalityTest
     {

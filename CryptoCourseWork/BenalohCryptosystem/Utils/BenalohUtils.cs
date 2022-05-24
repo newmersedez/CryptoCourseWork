@@ -2,7 +2,7 @@
 using System.Numerics;
 using System.Security.Cryptography;
 
-namespace BenalohCryptosystem
+namespace BenalohCryptosystem.Utils
 {
     internal static class BenalohUtils
     {

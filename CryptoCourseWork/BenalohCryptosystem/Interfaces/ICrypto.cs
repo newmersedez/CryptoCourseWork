@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace BenalohCryptosystem
+namespace BenalohCryptosystem.Interfaces
 {
     internal interface ICrypto
     {        

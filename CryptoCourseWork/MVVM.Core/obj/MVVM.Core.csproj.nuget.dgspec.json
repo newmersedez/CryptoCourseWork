@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj",
         "projectName": "MVVM.Core",
         "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj",
-        "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\newmersedez\\.nuget\\packages\\",
         "outputPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\newmersedez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +49,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -57,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

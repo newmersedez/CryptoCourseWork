@@ -9,6 +9,7 @@
       "CryptoCourseWork/1.0.0": {
         "dependencies": {
           "BenalohCryptosystem": "1.0.0",
+          "MVVM.Core": "1.0.0",
           "RC6": "1.0.0"
         },
         "runtime": {
@@ -18,6 +19,11 @@
       "BenalohCryptosystem/1.0.0": {
         "runtime": {
           "BenalohCryptosystem.dll": {}
+        }
+      },
+      "MVVM.Core/1.0.0": {
+        "runtime": {
+          "MVVM.Core.dll": {}
         }
       },
       "RC6/1.0.0": {
@@ -34,6 +40,11 @@
       "sha512": ""
     },
     "BenalohCryptosystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MVVM.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

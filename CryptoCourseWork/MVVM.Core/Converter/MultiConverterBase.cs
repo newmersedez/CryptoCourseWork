@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace MVVM.Core
+namespace MVVM.Core.Converter
 {
     public abstract class MultiConverterBase<TMultiConverter> : MarkupExtension, IMultiValueConverter
         where TMultiConverter: class, new()

@@ -1,4 +1,4 @@
-﻿namespace RC6
+﻿namespace RC6.Interfaces
 {
     public interface ICrypto
     {        
