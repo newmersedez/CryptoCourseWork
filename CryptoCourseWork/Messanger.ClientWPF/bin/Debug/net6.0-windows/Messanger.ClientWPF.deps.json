@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Messanger.ClientWPF/1.0.0": {
         "dependencies": {
-          "Messanger.MVVM.Core": "1.0.0"
+          "Messanger.MVVM.Core": "1.0.0",
+          "Messanger.Resources": "1.0.0"
         },
         "runtime": {
           "Messanger.ClientWPF.dll": {}
@@ -17,6 +18,11 @@
       "Messanger.MVVM.Core/1.0.0": {
         "runtime": {
           "Messanger.MVVM.Core.dll": {}
+        }
+      },
+      "Messanger.Resources/1.0.0": {
+        "runtime": {
+          "Messanger.Resources.dll": {}
         }
       }
     }
@@ -28,6 +34,11 @@
       "sha512": ""
     },
     "Messanger.MVVM.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Messanger.Resources/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

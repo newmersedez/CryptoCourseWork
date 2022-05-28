@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using Messanger.ClientWPF.MVVM.Model;
 using Messanger.ClientWPF.Net;
+using Microsoft.Win32;
 using MVVM.Core.Command;
 using MVVM.Core.ViewModel;
 
@@ -11,32 +12,62 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
 {
     public sealed class MainWindowViewModel : ViewModelBase
     {
-        public ObservableCollection<UserModel> Users { get; set; }
-        public ObservableCollection<string> Messages { get; set; }
-        public RelayCommand ConnectToServerCommand { get; set; }
-        public RelayCommand SendMessageCommand { get; set; }
+        private Server _server;
         public string Username { get; set; }
         public string Message { get; set; }
+        public ObservableCollection<UserModel> Users { get; set; }
+        public ObservableCollection<string> Messages { get; set; }
+        
+        public RelayCommand ConnectToServerCommand { get; set; }
+        public RelayCommand SendMessageCommand { get; set; }
+        public RelayCommand OpenClientFilesCommand { get; set; }
 
-        private Server _server;
         public MainWindowViewModel()
         {
             Users = new ObservableCollection<UserModel>();
             Messages = new ObservableCollection<string>();
             _server = new Server();
-            
+
             _server.ConnectedEvent += UserConnected;
             _server.MessageReceivedEvent += MessageReceived;
             _server.UserDisconnectedEvent += UserDisconnected;
             
-             ConnectToServerCommand = new RelayCommand(
+            ConnectToServerCommand = new RelayCommand(
                 o => _server.ConnectToServer(Username),
                 o => !string.IsNullOrEmpty(Username));
             SendMessageCommand = new RelayCommand(
-                o => _server.SendMessageToServer(Message),
-                o => !string.IsNullOrEmpty(Message));
+                o =>
+                {
+                    if (Message != null) 
+                        _server.SendMessageToServer(Message);
+                    Message = "";
+                    RaisePropertyChanged(nameof(Message));
+                },
+                o =>
+                {
+                    return !string.IsNullOrEmpty(Message) && _server.IsConnectedToServer();
+                });
+            OpenClientFilesCommand = new RelayCommand(
+                o =>
+                {
+                    OpenClientFileDialog();
+                },
+                o =>
+                {
+                    return _server.IsConnectedToServer();
+                });
         }
-        
+
+        private void OpenClientFileDialog()
+        {
+            var openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Message = openFileDialog.FileName;
+                RaisePropertyChanged(nameof(Message));
+            }
+        }
+
         private void UserConnected()
         {
             var user = new UserModel

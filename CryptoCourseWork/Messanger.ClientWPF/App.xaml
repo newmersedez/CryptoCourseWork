@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:Messanger.ClientWPF"
              StartupUri="MVVM/View/MainWindow.xaml">
     <Application.Resources>
-         
+         <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                 <ResourceDictionary Source="./Themes/ServerUserStyle.xaml" />
+                 <ResourceDictionary Source="./Themes/ButtonStyle.xaml" />
+                 <ResourceDictionary Source="./Themes/ChatStyle.xaml" />
+                 <ResourceDictionary Source="./Themes/MessageBoxStyle.xaml" />
+                 <ResourceDictionary Source="./Themes/ScrollbarStyle.xaml" />
+             </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
     </Application.Resources>
 </Application>

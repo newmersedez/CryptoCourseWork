@@ -23,3 +23,11 @@ D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Clien
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.MVVM.Core.pdb
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Messanger.ClientWPF.csproj.CopyComplete
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\App.baml
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Resources.dll
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Resources.pdb
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Themes\ServerUserStyle.baml
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Themes\ButtonStyle.baml
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Themes\ChatStyle.baml
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Themes\MessageBoxStyle.baml
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Themes\ScrollbarStyle.baml

@@ -37,7 +37,8 @@ namespace Messanger.Server
                         case 5:
                             var message = _packetReader.ReadMessage();
                             Console.Write($"[{DateTime.Now}] : Message received {message}");
-                            Program.BroadcastMessage($"[{DateTime.Now}] [{Username}]: {message}");
+                            Program.BroadcastMessage($"{Username}: {message}");
+                            // Program.BroadcastMessage($"{{\"Username\": \"{Username}\", \"Message\": \"{message}\"}}");
                             break;
                     }
                 }

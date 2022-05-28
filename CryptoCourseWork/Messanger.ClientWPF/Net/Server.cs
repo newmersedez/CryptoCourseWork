@@ -7,7 +7,7 @@ namespace Messanger.ClientWPF.Net
 {
     public sealed class Server
     {
-        private TcpClient _client;
+        private readonly TcpClient _client;
         public PacketReader PacketReader;
 
         public event Action ConnectedEvent;
@@ -36,6 +36,11 @@ namespace Messanger.ClientWPF.Net
 
                 ReadPackets();
             }
+        }
+
+        public bool IsConnectedToServer()
+        {
+            return _client.Connected;
         }
 
         private void ReadPackets()
