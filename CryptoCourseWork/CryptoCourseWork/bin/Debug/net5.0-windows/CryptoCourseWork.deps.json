@@ -8,27 +8,15 @@
     ".NETCoreApp,Version=v5.0": {
       "CryptoCourseWork/1.0.0": {
         "dependencies": {
-          "BenalohCryptosystem": "1.0.0",
-          "MVVM.Core": "1.0.0",
-          "RC6": "1.0.0"
+          "Messanger.MVVM.Core": "1.0.0"
         },
         "runtime": {
           "CryptoCourseWork.dll": {}
         }
       },
-      "BenalohCryptosystem/1.0.0": {
+      "Messanger.MVVM.Core/1.0.0": {
         "runtime": {
-          "BenalohCryptosystem.dll": {}
-        }
-      },
-      "MVVM.Core/1.0.0": {
-        "runtime": {
-          "MVVM.Core.dll": {}
-        }
-      },
-      "RC6/1.0.0": {
-        "runtime": {
-          "RC6.dll": {}
+          "Messanger.MVVM.Core.dll": {}
         }
       }
     }
@@ -39,17 +27,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BenalohCryptosystem/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MVVM.Core/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "RC6/1.0.0": {
+    "Messanger.MVVM.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

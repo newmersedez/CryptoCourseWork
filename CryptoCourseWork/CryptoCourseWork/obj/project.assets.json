@@ -1,41 +1,15 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {
-      "BenalohCryptosystem/1.0.0": {
+    "net6.0-windows7.0": {
+      "Messanger.MVVM.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/BenalohCryptosystem.dll": {}
+          "bin/placeholder/Messanger.MVVM.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BenalohCryptosystem.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
-      "MVVM.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/MVVM.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MVVM.Core.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
-      "RC6/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/RC6.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RC6.dll": {}
+          "bin/placeholder/Messanger.MVVM.Core.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -44,27 +18,15 @@
     }
   },
   "libraries": {
-    "BenalohCryptosystem/1.0.0": {
+    "Messanger.MVVM.Core/1.0.0": {
       "type": "project",
-      "path": "../BenalohCryptosystem/BenalohCryptosystem.csproj",
-      "msbuildProject": "../BenalohCryptosystem/BenalohCryptosystem.csproj"
-    },
-    "MVVM.Core/1.0.0": {
-      "type": "project",
-      "path": "../MVVM.Core/MVVM.Core.csproj",
-      "msbuildProject": "../MVVM.Core/MVVM.Core.csproj"
-    },
-    "RC6/1.0.0": {
-      "type": "project",
-      "path": "../RC6/RC6.csproj",
-      "msbuildProject": "../RC6/RC6.csproj"
+      "path": "../Messanger.MVVM.Core/Messanger.MVVM.Core.csproj",
+      "msbuildProject": "../Messanger.MVVM.Core/Messanger.MVVM.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": [
-      "BenalohCryptosystem >= 1.0.0",
-      "MVVM.Core >= 1.0.0",
-      "RC6 >= 1.0.0"
+    "net6.0-windows7.0": [
+      "Messanger.MVVM.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -84,24 +46,18 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0-windows7.0": {
-          "targetAlias": "net5.0-windows",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\BenalohCryptosystem\\BenalohCryptosystem.csproj": {
-              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\BenalohCryptosystem\\BenalohCryptosystem.csproj"
-            },
-            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj": {
-              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\MVVM.Core\\MVVM.Core.csproj"
-            },
-            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\RC6\\RC6.csproj": {
-              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\RC6\\RC6.csproj"
+            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.MVVM.Core\\Messanger.MVVM.Core.csproj": {
+              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.MVVM.Core\\Messanger.MVVM.Core.csproj"
             }
           }
         }
@@ -113,8 +69,8 @@
       }
     },
     "frameworks": {
-      "net5.0-windows7.0": {
-        "targetAlias": "net5.0-windows",
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
         "imports": [
           "net461",
           "net462",
@@ -125,24 +81,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.17, 5.0.17]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

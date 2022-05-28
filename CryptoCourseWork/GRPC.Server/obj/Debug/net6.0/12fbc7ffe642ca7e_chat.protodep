@@ -1,4 +1,0 @@
-obj\Debug\net6.0\Protos/Chat.cs \
-obj\Debug\net6.0\Protos/ChatGrpc.cs: C:/Users/newmersedez/.nuget/packages/grpc.tools/2.46.1/build/native/include/google/protobuf/timestamp.proto\
- C:/Users/newmersedez/.nuget/packages/grpc.tools/2.46.1/build/native/include/google/protobuf/empty.proto\
- Protos/chat.proto
