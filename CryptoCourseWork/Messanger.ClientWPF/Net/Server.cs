@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Messanger.ClientWPF.Net.IO;
+using Messanger.Crypto.RC6.Classes;
 
 namespace Messanger.ClientWPF.Net
 {
@@ -43,6 +45,7 @@ namespace Messanger.ClientWPF.Net
             return _client.Connected;
         }
 
+        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
         private void ReadPackets()
         {
             Task.Run(() =>
@@ -58,7 +61,7 @@ namespace Messanger.ClientWPF.Net
                         case 5:
                             MessageReceivedEvent?.Invoke();
                             break;
-                        case 10:
+                        case 15:
                             UserDisconnectedEvent?.Invoke();
                             break;
                         default:

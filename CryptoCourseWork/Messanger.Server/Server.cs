@@ -8,11 +8,13 @@ namespace Messanger.Server
     {
         private static TcpListener _listener;
         private static List<Client> _users;
+        private static List<string> _files;
 
         private static void Main(string[] args)
         {
             _users = new List<Client>();
             _listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 7891);
+            _files = new List<string>();
             _listener.Start();
 
             while (true)
@@ -57,7 +59,7 @@ namespace Messanger.Server
             foreach (var user in _users)
             {
                 var broadcastPacket = new PacketBuilder();
-                broadcastPacket.WriteOpCode(10);
+                broadcastPacket.WriteOpCode(15);
                 broadcastPacket.WriteMessage(uid);
                 user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
             }

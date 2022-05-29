@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.Net;
+using System.Net.Sockets;
 using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
@@ -20,7 +21,7 @@ namespace Messanger.Server
             var opcode = _packetReader.ReadByte();
             Username = _packetReader.ReadMessage();
             
-            Console.WriteLine($"[{DateTime.Now}]: Client has connected with the username {Username}");
+            Console.WriteLine($"[{DateTime.Now}]: Client has connected with the username {Username}\n");
 
             Task.Run(() => Process());
         }
@@ -35,16 +36,18 @@ namespace Messanger.Server
                     switch (opcode)
                     {
                         case 5:
+                        {
                             var message = _packetReader.ReadMessage();
-                            Console.Write($"[{DateTime.Now}] : Message received {message}");
+                            Console.Write($"[{DateTime.Now}] : Message received {message}\n");
                             Program.BroadcastMessage($"{Username}: {message}");
-                            // Program.BroadcastMessage($"{{\"Username\": \"{Username}\", \"Message\": \"{message}\"}}");
                             break;
+                        }
+
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"[{UID.ToString()}]: Disconnected");
+                    Console.WriteLine($"[{UID.ToString()}]: Disconnected\n");
                     Program.BroadcastDisconnect(UID.ToString());
                     ClientSocket.Close();
                     break;

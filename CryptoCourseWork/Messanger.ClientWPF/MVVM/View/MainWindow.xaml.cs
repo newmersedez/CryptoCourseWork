@@ -32,7 +32,7 @@ namespace Messanger.ClientWPF.MVVM.View
                 Application.Current.MainWindow.WindowState = WindowState.Normal;
         }
 
-        private void CloseeButtonOnClick(object sender, RoutedEventArgs e)
+        private void CloseButtonOnClick(object sender, RoutedEventArgs e)
         {
             Close();
         }

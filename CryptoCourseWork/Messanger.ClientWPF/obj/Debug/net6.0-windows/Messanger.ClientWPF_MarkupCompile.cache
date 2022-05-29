@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\App.xaml
-6-175210793
+7-734418638
 
-81392083322
-196-1875645855
-MVVM\View\MainWindow.xaml;Themes\ButtonStyle.xaml;Themes\ChatStyle.xaml;Themes\MessageBoxStyle.xaml;Themes\ScrollbarStyle.xaml;Themes\ServerUserStyle.xaml;
+91039098185
+197-56050488
+MVVM\View\MainWindow.xaml;Resources\ButtonStyle.xaml;Resources\ChatStyle.xaml;Resources\MessageBoxStyle.xaml;Resources\ScrollbarStyle.xaml;Resources\ServerFilesDialog.xaml;Resources\ServerUserStyle.xaml;
 
 False
 

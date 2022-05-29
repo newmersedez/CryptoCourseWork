@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Windows;
 using Messanger.ClientWPF.MVVM.Model;
 using Messanger.ClientWPF.Net;
+using Messanger.ClientWPF.Themes;
 using Microsoft.Win32;
 using MVVM.Core.Command;
 using MVVM.Core.ViewModel;
@@ -12,7 +12,7 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
 {
     public sealed class MainWindowViewModel : ViewModelBase
     {
-        private Server _server;
+        private readonly Server _server;
         public string Username { get; set; }
         public string Message { get; set; }
         public ObservableCollection<UserModel> Users { get; set; }
@@ -21,6 +21,7 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
         public RelayCommand ConnectToServerCommand { get; set; }
         public RelayCommand SendMessageCommand { get; set; }
         public RelayCommand OpenClientFilesCommand { get; set; }
+        public RelayCommand OpenServerFilesCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -33,8 +34,14 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
             _server.UserDisconnectedEvent += UserDisconnected;
             
             ConnectToServerCommand = new RelayCommand(
-                o => _server.ConnectToServer(Username),
-                o => !string.IsNullOrEmpty(Username));
+                o => _server.ConnectToServer(Username), 
+                o => !string.IsNullOrEmpty(Username) && !_server.IsConnectedToServer());
+            OpenClientFilesCommand = new RelayCommand(
+                o => OpenClientFileDialog(),
+                o => _server.IsConnectedToServer());
+            OpenServerFilesCommand = new RelayCommand(
+                o => OpenServerFileDialog(),
+                o => _server.IsConnectedToServer());
             SendMessageCommand = new RelayCommand(
                 o =>
                 {
@@ -47,25 +54,26 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
                 {
                     return !string.IsNullOrEmpty(Message) && _server.IsConnectedToServer();
                 });
-            OpenClientFilesCommand = new RelayCommand(
-                o =>
-                {
-                    OpenClientFileDialog();
-                },
-                o =>
-                {
-                    return _server.IsConnectedToServer();
-                });
         }
 
         private void OpenClientFileDialog()
         {
-            var openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                Message = openFileDialog.FileName;
-                RaisePropertyChanged(nameof(Message));
-            }
+            // var openFileDialog = new OpenFileDialog();
+            // if (openFileDialog.ShowDialog() == true)
+            // {
+            //     var file = openFileDialog.FileName;
+            //     _server.SendFileToServer(file);
+            // }
+        }
+
+        private void OpenServerFileDialog()
+        {
+            // var openFileDialog = new ServerFilesDialog();
+            // if (openFileDialog.ShowDialog() == true)
+            // {
+            //     var filename = openFileDialog.FileName;
+            //     MessageBox.Show(filename);
+            // }
         }
 
         private void UserConnected()

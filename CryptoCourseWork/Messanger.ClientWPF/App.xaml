@@ -6,11 +6,11 @@
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="./Themes/ServerUserStyle.xaml" />
-                 <ResourceDictionary Source="./Themes/ButtonStyle.xaml" />
-                 <ResourceDictionary Source="./Themes/ChatStyle.xaml" />
-                 <ResourceDictionary Source="./Themes/MessageBoxStyle.xaml" />
-                 <ResourceDictionary Source="./Themes/ScrollbarStyle.xaml" />
+                 <ResourceDictionary Source="./Resources/ServerUserStyle.xaml" />
+                 <ResourceDictionary Source="./Resources/ButtonStyle.xaml" />
+                 <ResourceDictionary Source="./Resources/ChatStyle.xaml" />
+                 <ResourceDictionary Source="./Resources/MessageBoxStyle.xaml" />
+                 <ResourceDictionary Source="./Resources/ScrollbarStyle.xaml" />
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
     </Application.Resources>
