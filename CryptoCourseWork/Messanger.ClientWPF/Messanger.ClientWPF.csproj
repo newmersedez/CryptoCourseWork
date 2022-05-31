@@ -14,4 +14,15 @@
       <ProjectReference Include="..\Messanger.Server\Messanger.Server.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Resources\Images" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Images\Avatar.jpg" />
+      <Resource Include="Resources\Images\Avatar.jpg" />
+      <None Remove="Resources\Images\Icon.ico" />
+      <Resource Include="Resources\Images\Icon.ico" />
+    </ItemGroup>
+
 </Project>
