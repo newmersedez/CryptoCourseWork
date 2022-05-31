@@ -10,7 +10,8 @@
         "dependencies": {
           "Messanger.Crypto": "1.0.0",
           "Messanger.MVVM.Core": "1.0.0",
-          "Messanger.Resources": "1.0.0"
+          "Messanger.Resources": "1.0.0",
+          "Messanger.Server": "1.0.0"
         },
         "runtime": {
           "Messanger.ClientWPF.dll": {}
@@ -29,6 +30,14 @@
       "Messanger.Resources/1.0.0": {
         "runtime": {
           "Messanger.Resources.dll": {}
+        }
+      },
+      "Messanger.Server/1.0.0": {
+        "dependencies": {
+          "Messanger.Crypto": "1.0.0"
+        },
+        "runtime": {
+          "Messanger.Server.dll": {}
         }
       }
     }
@@ -50,6 +59,11 @@
       "sha512": ""
     },
     "Messanger.Resources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Messanger.Server/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

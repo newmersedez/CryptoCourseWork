@@ -1,18 +1,18 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using Messanger.Crypto.RC6.Classes;
 using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
 {
-    public sealed class Client
+    public sealed class Connection
     {
         public string Username { get; set; }
         public Guid UID { get; set; }
         public TcpClient ClientSocket { get; set; }
-
-        private PacketReader _packetReader;
+        private readonly PacketReader _packetReader;
         
-        public Client(TcpClient client)
+        public Connection(TcpClient client)
         {
             ClientSocket = client;
             UID = Guid.NewGuid();
@@ -39,7 +39,7 @@ namespace Messanger.Server
                         {
                             var message = _packetReader.ReadMessage();
                             Console.Write($"[{DateTime.Now}] : Message received {message}\n");
-                            Program.BroadcastMessage($"{Username}: {message}");
+                            ServerProgram.BroadcastMessage($"{Username}: {message}");
                             break;
                         }
 
@@ -48,7 +48,7 @@ namespace Messanger.Server
                 catch (Exception e)
                 {
                     Console.WriteLine($"[{UID.ToString()}]: Disconnected\n");
-                    Program.BroadcastDisconnect(UID.ToString());
+                    ServerProgram.BroadcastDisconnect(UID.ToString());
                     ClientSocket.Close();
                     break;
                 }

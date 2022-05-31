@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Messanger.Crypto/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Messanger.Crypto.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Messanger.Crypto.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Messanger.Crypto/1.0.0": {
+      "type": "project",
+      "path": "../Messanger.Crypto/Messanger.Crypto.csproj",
+      "msbuildProject": "../Messanger.Crypto/Messanger.Crypto.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Messanger.Crypto >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\newmersedez\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Crypto\\Messanger.Crypto.csproj": {
+              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Crypto\\Messanger.Crypto.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -11,10 +11,7 @@
       <ProjectReference Include="..\Messanger.Crypto\Messanger.Crypto.csproj" />
       <ProjectReference Include="..\Messanger.MVVM.Core\Messanger.MVVM.Core.csproj" />
       <ProjectReference Include="..\Messanger.Resources\Messanger.Resources.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Downloads" />
+      <ProjectReference Include="..\Messanger.Server\Messanger.Server.csproj" />
     </ItemGroup>
 
 </Project>

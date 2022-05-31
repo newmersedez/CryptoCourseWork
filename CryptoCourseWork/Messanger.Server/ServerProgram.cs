@@ -4,22 +4,20 @@ using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
 {
-    public sealed class Program
+    public sealed class ServerProgram
     {
         private static TcpListener _listener;
-        private static List<Client> _users;
-        private static List<string> _files;
+        private static List<Connection> _users;
 
         private static void Main(string[] args)
         {
-            _users = new List<Client>();
+            _users = new List<Connection>();
             _listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 7891);
-            _files = new List<string>();
             _listener.Start();
 
             while (true)
             {
-                var client = new Client(_listener.AcceptTcpClient());
+                var client = new Connection(_listener.AcceptTcpClient());
                 _users.Add(client);
 
                 BroadcastConnection();

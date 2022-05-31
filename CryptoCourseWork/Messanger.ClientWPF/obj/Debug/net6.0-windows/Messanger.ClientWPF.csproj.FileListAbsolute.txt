@@ -35,3 +35,8 @@ D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Clien
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\obj\Debug\net6.0-windows\Resources\ServerFilesDialog.baml
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Crypto.dll
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Crypto.pdb
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Server.deps.json
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Server.runtimeconfig.json
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Server.exe
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Server.dll
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.ClientWPF\bin\Debug\net6.0-windows\Messanger.Server.pdb

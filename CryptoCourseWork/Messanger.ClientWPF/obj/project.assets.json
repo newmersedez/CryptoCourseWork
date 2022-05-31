@@ -37,6 +37,19 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "Messanger.Server/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Messanger.Crypto": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Messanger.Server.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Messanger.Server.dll": {}
+        }
       }
     }
   },
@@ -55,13 +68,19 @@
       "type": "project",
       "path": "../Messanger.Resources/Messanger.Resources.csproj",
       "msbuildProject": "../Messanger.Resources/Messanger.Resources.csproj"
+    },
+    "Messanger.Server/1.0.0": {
+      "type": "project",
+      "path": "../Messanger.Server/Messanger.Server.csproj",
+      "msbuildProject": "../Messanger.Server/Messanger.Server.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "Messanger.Crypto >= 1.0.0",
       "Messanger.MVVM.Core >= 1.0.0",
-      "Messanger.Resources >= 1.0.0"
+      "Messanger.Resources >= 1.0.0",
+      "Messanger.Server >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -99,6 +118,9 @@
             },
             "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Resources\\Messanger.Resources.csproj": {
               "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Resources\\Messanger.Resources.csproj"
+            },
+            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Server\\Messanger.Server.csproj": {
+              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Server\\Messanger.Server.csproj"
             }
           }
         }

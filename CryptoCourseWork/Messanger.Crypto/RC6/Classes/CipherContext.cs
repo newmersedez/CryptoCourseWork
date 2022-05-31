@@ -28,7 +28,7 @@ namespace Messanger.Crypto.RC6.Classes
             _initializationVector = vector;
             _param = param;
         }
-        
+
         private static byte[] Xor(byte[] leftBlock, byte[] rightBlock)
         {
             var resultBlock = new byte[leftBlock.Length];
@@ -312,7 +312,7 @@ namespace Messanger.Crypto.RC6.Classes
                 default:
                     throw new ArgumentOutOfRangeException(nameof(_mode), "");
             }
-            var connectedBlocks = ListToByteArray(decryptedBlocksList); 
+            var connectedBlocks = ListToByteArray(decryptedBlocksList);
             var resultBlock = new byte[connectedBlocks.Length - connectedBlocks[^1]];
             Array.Copy(connectedBlocks, resultBlock, resultBlock.Length);
             return resultBlock;

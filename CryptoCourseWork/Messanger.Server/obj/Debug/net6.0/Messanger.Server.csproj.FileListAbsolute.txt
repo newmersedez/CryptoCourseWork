@@ -13,3 +13,6 @@ D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Serve
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Server\obj\Debug\net6.0\Messanger.Server.pdb
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Server\obj\Debug\net6.0\Messanger.Server.genruntimeconfig.cache
 D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Server\obj\Debug\net6.0\ref\Messanger.Server.dll
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Server\bin\Debug\net6.0\Messanger.Crypto.dll
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Server\bin\Debug\net6.0\Messanger.Crypto.pdb
+D:\3 курс 6 семестр\CryptoCourseWork\CryptoCourseWork\Messanger.Server\obj\Debug\net6.0\Messanger.Server.csproj.CopyComplete

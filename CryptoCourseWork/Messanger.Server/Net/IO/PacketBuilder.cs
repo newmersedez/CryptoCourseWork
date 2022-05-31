@@ -1,10 +1,12 @@
-﻿using System.Text;
+﻿using System;
+using System.IO;
+using System.Text;
 
 namespace Messanger.Server.Net.IO
 {
     public sealed class PacketBuilder
     {
-        private MemoryStream _ms;
+        private readonly MemoryStream _ms;
 
         public PacketBuilder()
         {
@@ -20,7 +22,7 @@ namespace Messanger.Server.Net.IO
         {
             var messageLength = message.Length;
             _ms.Write(BitConverter.GetBytes(messageLength));
-            _ms.Write(Encoding.ASCII.GetBytes(message));
+            _ms.Write(Encoding.Default.GetBytes(message));
         }
 
         public byte[] GetPacketBytes()
