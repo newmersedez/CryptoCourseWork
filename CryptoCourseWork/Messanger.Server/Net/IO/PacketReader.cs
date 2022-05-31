@@ -13,14 +13,32 @@ namespace Messanger.Server.Net.IO
             _ns = ns;
         }
         
-        public string ReadMessage() 
+        // public string ReadMessage() 
+        // {
+        //     byte[] messageBuffer;
+        //     var length = ReadInt32();
+        //     messageBuffer = new byte[length];
+        //     _ns.Read(messageBuffer, 0, length);
+        //     var message = Encoding.Default.GetString(messageBuffer);
+        //     return message;
+        // }
+        
+        public byte[] ReadMessage() 
         {
-            byte[] messageBuffer;
+            byte[] message;
             var length = ReadInt32();
-            messageBuffer = new byte[length];
-            _ns.Read(messageBuffer, 0, length);
-            var message = Encoding.Default.GetString(messageBuffer);
+            message = new byte[length];
+            _ns.Read(message, 0, length);
             return message;
         }
+        
+        // public byte[] ReadByteMessage() 
+        // {
+        //     byte[] messageBuffer;
+        //     var length = ReadInt32();
+        //     messageBuffer = new byte[length];
+        //     _ns.Read(messageBuffer, 0, length);
+        //     return messageBuffer;
+        // }
      }
 }

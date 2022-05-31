@@ -18,12 +18,26 @@ namespace Messanger.Server.Net.IO
             _ms.WriteByte(opcode);
         }
 
-        public void WriteMessage(string message)
+        // public void WriteMessage(string message)
+        // {
+        //     var messageLength = message.Length;
+        //     _ms.Write(BitConverter.GetBytes(messageLength));
+        //     _ms.Write(Encoding.Default.GetBytes(message));
+        // }
+        
+        public void WriteMessage(byte[] message)
         {
             var messageLength = message.Length;
             _ms.Write(BitConverter.GetBytes(messageLength));
-            _ms.Write(Encoding.Default.GetBytes(message));
+            _ms.Write(message);
         }
+        
+        // public void WriteByteMessage(byte[] byteMessage)
+        // {
+        //     var messageLength = byteMessage.Length;
+        //     _ms.Write(BitConverter.GetBytes(messageLength));
+        //     _ms.Write(byteMessage);
+        // }
 
         public byte[] GetPacketBytes()
         {

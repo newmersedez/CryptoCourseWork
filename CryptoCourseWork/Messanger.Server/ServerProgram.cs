@@ -1,5 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using Messanger.Crypto.RC6.Classes;
 using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
@@ -32,8 +34,8 @@ namespace Messanger.Server
                 {
                     var broadcastPacket = new PacketBuilder();
                     broadcastPacket.WriteOpCode(1);
-                    broadcastPacket.WriteMessage(usr.Username);
-                    broadcastPacket.WriteMessage(usr.UID.ToString());
+                    broadcastPacket.WriteMessage(Encoding.Default.GetBytes(usr.Username));
+                    broadcastPacket.WriteMessage(Encoding.Default.GetBytes(usr.UID.ToString()));
                     user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
                 }
             }
@@ -41,11 +43,12 @@ namespace Messanger.Server
 
         public static void BroadcastMessage(string message)
         {
+            Console.WriteLine($"Broadcasting {message}");
             foreach (var user in _users)
             {
                 var messagePacket = new PacketBuilder();
                 messagePacket.WriteOpCode(5);
-                messagePacket.WriteMessage(message);
+                messagePacket.WriteMessage(Encoding.Default.GetBytes(message));
                 user.ClientSocket.Client.Send(messagePacket.GetPacketBytes());
             }
         }
@@ -58,7 +61,7 @@ namespace Messanger.Server
             {
                 var broadcastPacket = new PacketBuilder();
                 broadcastPacket.WriteOpCode(15);
-                broadcastPacket.WriteMessage(uid);
+                broadcastPacket.WriteMessage(Encoding.Default.GetBytes(uid));
                 user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
             }
             

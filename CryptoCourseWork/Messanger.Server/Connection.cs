@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using Messanger.Crypto.RC6.Classes;
 using Messanger.Server.Net.IO;
 
@@ -19,7 +20,7 @@ namespace Messanger.Server
             _packetReader = new PacketReader(ClientSocket.GetStream());
             
             var opcode = _packetReader.ReadByte();
-            Username = _packetReader.ReadMessage();
+            Username = Encoding.Default.GetString(_packetReader.ReadMessage());
             
             Console.WriteLine($"[{DateTime.Now}]: Client has connected with the username {Username}\n");
 
@@ -37,7 +38,7 @@ namespace Messanger.Server
                     {
                         case 5:
                         {
-                            var message = _packetReader.ReadMessage();
+                            var message =Encoding.Default.GetString(_packetReader.ReadMessage());
                             Console.Write($"[{DateTime.Now}] : Message received {message}\n");
                             ServerProgram.BroadcastMessage($"{Username}: {message}");
                             break;

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading.Tasks;
 using Messanger.Server.Net.IO;
 
@@ -32,7 +34,7 @@ namespace Messanger.ClientWPF.Net
                 {
                     var connectPacket = new PacketBuilder();
                     connectPacket.WriteOpCode(0);
-                    connectPacket.WriteMessage(username);
+                    connectPacket.WriteMessage(Encoding.Default.GetBytes(username));
                     _client.Client.Send(connectPacket.GetPacketBytes());   
                 }
 
@@ -75,7 +77,7 @@ namespace Messanger.ClientWPF.Net
         {
             var messagePacket = new PacketBuilder();
             messagePacket.WriteOpCode(5);
-            messagePacket.WriteMessage(message);
+            messagePacket.WriteMessage(Encoding.Default.GetBytes(message));
             _client.Client.Send(messagePacket.GetPacketBytes());
         }
     }   

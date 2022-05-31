@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using Messanger.ClientWPF.MVVM.Model;
 using Messanger.ClientWPF.Net;
@@ -54,8 +55,8 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
         {
             var user = new UserModel
             {
-                Username = _client.PacketReader.ReadMessage(),
-                UID = _client.PacketReader.ReadMessage()
+                Username = Encoding.Default.GetString(_client.PacketReader.ReadMessage()),
+                UID = Encoding.Default.GetString(_client.PacketReader.ReadMessage())
             };
 
             if (!Users.Any(x => x.UID == user.UID))
@@ -66,13 +67,13 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
         
         private void MessageReceived()
         {
-            var message = _client.PacketReader.ReadMessage();
+            var message = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
             Application.Current.Dispatcher.Invoke(() => Messages.Add(message));
         }
         
         private void UserDisconnected()
         {
-            var uid = _client.PacketReader.ReadMessage();
+            var uid = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
             var user = Users.FirstOrDefault(x => x.UID == uid);
             Application.Current.Dispatcher.Invoke(() => user != null && Users.Remove(user));
         }
