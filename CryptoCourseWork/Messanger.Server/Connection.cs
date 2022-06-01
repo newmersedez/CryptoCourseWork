@@ -1,7 +1,8 @@
-﻿using System.Net;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
+using System.Numerics;
 using System.Text;
 using Messanger.Crypto.RC6.Classes;
+using Messanger.Server;
 using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
@@ -21,7 +22,7 @@ namespace Messanger.Server
             
             var opcode = _packetReader.ReadByte();
             Username = Encoding.Default.GetString(_packetReader.ReadMessage());
-            
+
             Console.WriteLine($"[{DateTime.Now}]: Client has connected with the username {Username}\n");
 
             Task.Run(() => Process());
@@ -38,13 +39,12 @@ namespace Messanger.Server
                     {
                         case 5:
                         {
-                            var message =Encoding.Default.GetString(_packetReader.ReadMessage());
-                            Console.Write($"[{DateTime.Now}] : Message received {message}\n");
-                            ServerProgram.BroadcastMessage($"{Username}: {message}");
+                            var message = _packetReader.ReadMessage();
+                            Console.Write($"[{DateTime.Now}] : Message received {Encoding.Default.GetString(message)}\n");
+                            ServerProgram.BroadcastMessage(Username, message);
                             break;
                         }
-
-                    }
+}
                 }
                 catch (Exception e)
                 {

@@ -1,5 +1,7 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Net.Sockets;
+using System.Numerics;
 using System.Text;
 using Messanger.Crypto.RC6.Classes;
 using Messanger.Server.Net.IO;
@@ -11,6 +13,7 @@ namespace Messanger.Server
         private static TcpListener _listener;
         private static List<Connection> _users;
 
+        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
         private static void Main(string[] args)
         {
             _users = new List<Connection>();
@@ -21,7 +24,6 @@ namespace Messanger.Server
             {
                 var client = new Connection(_listener.AcceptTcpClient());
                 _users.Add(client);
-
                 BroadcastConnection();
             }
         }
@@ -41,14 +43,16 @@ namespace Messanger.Server
             }
         }
 
-        public static void BroadcastMessage(string message)
+        public static void BroadcastMessage(string username,  byte[] message)
         {
             Console.WriteLine($"Broadcasting {message}");
             foreach (var user in _users)
             {
                 var messagePacket = new PacketBuilder();
                 messagePacket.WriteOpCode(5);
-                messagePacket.WriteMessage(Encoding.Default.GetBytes(message));
+                messagePacket.WriteMessage(Encoding.Default.GetBytes(username));
+                messagePacket.WriteMessage(Encoding.Default.GetBytes(": "));
+                messagePacket.WriteMessage(message);
                 user.ClientSocket.Client.Send(messagePacket.GetPacketBytes());
             }
         }
@@ -65,7 +69,7 @@ namespace Messanger.Server
                 user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
             }
             
-            BroadcastMessage($"{disconnectedUser.Username} Disconnected");
+            BroadcastMessage(disconnectedUser.Username, Encoding.Default.GetBytes($"Disconnected"));
         }
     }
 }

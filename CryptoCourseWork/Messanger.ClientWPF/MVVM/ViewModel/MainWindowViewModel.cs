@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,19 +13,25 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
 {
     public sealed class MainWindowViewModel : ViewModelBase
     {
+        //Key = 1334440654591915542993625911497130241
+
         private readonly Client _client;
-        
+
         public string Username { get; set; }
         public string Message { get; set; }
+        public string Key { get; set; }
+
+        public ObservableCollection<UserModel> Users { get; }
+        public ObservableCollection<string> Messages { get; }
         
-        public ObservableCollection<UserModel> Users { get; set; }
-        public ObservableCollection<string> Messages { get; set; }
-        
-        public RelayCommand ConnectToServerCommand { get; set; }
+        public RelayCommand ConnectToServerCommand { get; } 
         public RelayCommand SendMessageCommand { get; set; }
 
         public MainWindowViewModel()
         {
+            Username = string.Empty;
+            Message = string.Empty;
+            Key = string.Empty;
             Users = new ObservableCollection<UserModel>();
             Messages = new ObservableCollection<string>();
             _client = new Client();
@@ -33,10 +41,10 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
             _client.UserDisconnectedEvent += UserDisconnected;
             
             ConnectToServerCommand = new RelayCommand(
-                o => _client.ConnectToServer(Username), 
-                o => !string.IsNullOrEmpty(Username) && !_client.IsConnectedToServer());
+                _ => _client.ConnectToServer(Username, Key), 
+                _ => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Key) && !_client.IsConnectedToServer());
             SendMessageCommand = new RelayCommand(
-                o =>
+                _ =>
                 {
                     if (Message != null)
                     {
@@ -45,7 +53,7 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
                     Message = "";
                     RaisePropertyChanged(nameof(Message));
                 },
-                o =>
+                _ =>
                 {
                     return !string.IsNullOrEmpty(Message) && _client.IsConnectedToServer();
                 });
@@ -64,11 +72,15 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
                 Application.Current.Dispatcher.Invoke(() => Users.Add(user));
             }
         }
-        
+
+        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
         private void MessageReceived()
         {
-            var message = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
-            Application.Current.Dispatcher.Invoke(() => Messages.Add(message));
+            var username = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
+            var separator = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
+            var message = _client.Algorithm.Decrypt(_client.PacketReader.ReadMessage());
+            var buildMessage = username + separator + Encoding.Default.GetString(message);
+            Application.Current.Dispatcher.Invoke(() => Messages.Add(buildMessage));
         }
         
         private void UserDisconnected()
@@ -77,6 +89,5 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
             var user = Users.FirstOrDefault(x => x.UID == uid);
             Application.Current.Dispatcher.Invoke(() => user != null && Users.Remove(user));
         }
-        
     }    
 }

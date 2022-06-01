@@ -114,6 +114,20 @@ namespace Messanger.Crypto.Benaloh.Classes
             return BigInteger.Multiply(left, right) % _keys.n;
         }
 
+        public BigInteger EncryptWithKey(BigInteger message, BigInteger y, BigInteger r, BigInteger n)
+        {
+            BigInteger u;
+            while (true)
+            {
+                u = BenalohUtils.GenerateRandomInteger(2, n - 1);
+                if (BigInteger.GreatestCommonDivisor(u, n) == 1)
+                    break;
+            }
+            var left = BigInteger.ModPow(y, message, n);
+            var right = BigInteger.ModPow(u, r, n);
+            return BigInteger.Multiply(left, right) % n;
+        }
+
         public BigInteger Decrypt(BigInteger message)
         {
             BigInteger md = 0;
@@ -125,6 +139,11 @@ namespace Messanger.Crypto.Benaloh.Classes
                     md = i;
             }
             return md;
+        }
+
+        public List<BigInteger> GetPublicKey()
+        {
+            return new List<BigInteger> { _keys.y, _keys.r, _keys.n };
         }
 
         public void GenerateKeys(BigInteger message)

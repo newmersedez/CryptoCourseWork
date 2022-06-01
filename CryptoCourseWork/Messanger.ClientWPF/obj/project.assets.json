@@ -25,19 +25,6 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
-      "Messanger.Resources/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Messanger.Resources.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Messanger.Resources.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
       "Messanger.Server/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -64,11 +51,6 @@
       "path": "../Messanger.MVVM.Core/Messanger.MVVM.Core.csproj",
       "msbuildProject": "../Messanger.MVVM.Core/Messanger.MVVM.Core.csproj"
     },
-    "Messanger.Resources/1.0.0": {
-      "type": "project",
-      "path": "../Messanger.Resources/Messanger.Resources.csproj",
-      "msbuildProject": "../Messanger.Resources/Messanger.Resources.csproj"
-    },
     "Messanger.Server/1.0.0": {
       "type": "project",
       "path": "../Messanger.Server/Messanger.Server.csproj",
@@ -79,7 +61,6 @@
     "net6.0-windows7.0": [
       "Messanger.Crypto >= 1.0.0",
       "Messanger.MVVM.Core >= 1.0.0",
-      "Messanger.Resources >= 1.0.0",
       "Messanger.Server >= 1.0.0"
     ]
   },
@@ -115,9 +96,6 @@
             },
             "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.MVVM.Core\\Messanger.MVVM.Core.csproj": {
               "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.MVVM.Core\\Messanger.MVVM.Core.csproj"
-            },
-            "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Resources\\Messanger.Resources.csproj": {
-              "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Resources\\Messanger.Resources.csproj"
             },
             "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Server\\Messanger.Server.csproj": {
               "projectPath": "D:\\3 курс 6 семестр\\CryptoCourseWork\\CryptoCourseWork\\Messanger.Server\\Messanger.Server.csproj"

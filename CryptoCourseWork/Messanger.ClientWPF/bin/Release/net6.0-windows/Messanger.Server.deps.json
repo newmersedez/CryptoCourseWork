@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Messanger.Server/1.0.0": {
+        "dependencies": {
+          "Messanger.Crypto": "1.0.0"
+        },
+        "runtime": {
+          "Messanger.Server.dll": {}
+        }
+      },
+      "Messanger.Crypto/1.0.0": {
+        "runtime": {
+          "Messanger.Crypto.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Messanger.Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Messanger.Crypto/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

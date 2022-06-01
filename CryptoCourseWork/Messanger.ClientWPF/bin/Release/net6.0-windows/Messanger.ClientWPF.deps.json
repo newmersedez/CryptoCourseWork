@@ -1,0 +1,61 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Messanger.ClientWPF/1.0.0": {
+        "dependencies": {
+          "Messanger.Crypto": "1.0.0",
+          "Messanger.MVVM.Core": "1.0.0",
+          "Messanger.Server": "1.0.0"
+        },
+        "runtime": {
+          "Messanger.ClientWPF.dll": {}
+        }
+      },
+      "Messanger.Crypto/1.0.0": {
+        "runtime": {
+          "Messanger.Crypto.dll": {}
+        }
+      },
+      "Messanger.MVVM.Core/1.0.0": {
+        "runtime": {
+          "Messanger.MVVM.Core.dll": {}
+        }
+      },
+      "Messanger.Server/1.0.0": {
+        "dependencies": {
+          "Messanger.Crypto": "1.0.0"
+        },
+        "runtime": {
+          "Messanger.Server.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Messanger.ClientWPF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Messanger.Crypto/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Messanger.MVVM.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Messanger.Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
