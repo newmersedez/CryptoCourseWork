@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Net.Sockets;
-using System.Text;
+﻿using System.Net.Sockets;
 
 namespace Messanger.Server.Net.IO
 {
@@ -13,16 +11,6 @@ namespace Messanger.Server.Net.IO
             _ns = ns;
         }
         
-        // public string ReadMessage() 
-        // {
-        //     byte[] messageBuffer;
-        //     var length = ReadInt32();
-        //     messageBuffer = new byte[length];
-        //     _ns.Read(messageBuffer, 0, length);
-        //     var message = Encoding.Default.GetString(messageBuffer);
-        //     return message;
-        // }
-        
         public byte[] ReadMessage() 
         {
             byte[] message;
@@ -31,14 +19,5 @@ namespace Messanger.Server.Net.IO
             _ns.Read(message, 0, length);
             return message;
         }
-        
-        // public byte[] ReadByteMessage() 
-        // {
-        //     byte[] messageBuffer;
-        //     var length = ReadInt32();
-        //     messageBuffer = new byte[length];
-        //     _ns.Read(messageBuffer, 0, length);
-        //     return messageBuffer;
-        // }
-     }
+    }
 }

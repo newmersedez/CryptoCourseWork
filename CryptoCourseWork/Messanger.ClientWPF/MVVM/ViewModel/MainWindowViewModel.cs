@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -46,17 +44,11 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
             SendMessageCommand = new RelayCommand(
                 _ =>
                 {
-                    if (Message != null)
-                    {
-                        _client.SendMessageToServer(Message);
-                    }
+                    _client.SendMessageToServer(Message);
                     Message = "";
                     RaisePropertyChanged(nameof(Message));
                 },
-                _ =>
-                {
-                    return !string.IsNullOrEmpty(Message) && _client.IsConnectedToServer();
-                });
+                _ => !string.IsNullOrEmpty(Message) && _client.IsConnectedToServer());
         }
         
         private void UserConnected()
@@ -64,16 +56,15 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
             var user = new UserModel
             {
                 Username = Encoding.Default.GetString(_client.PacketReader.ReadMessage()),
-                UID = Encoding.Default.GetString(_client.PacketReader.ReadMessage())
+                Uid = Encoding.Default.GetString(_client.PacketReader.ReadMessage())
             };
 
-            if (!Users.Any(x => x.UID == user.UID))
+            if (Users.All(x => x.Uid != user.Uid))
             {
                 Application.Current.Dispatcher.Invoke(() => Users.Add(user));
             }
         }
-
-        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
+        
         private void MessageReceived()
         {
             var username = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
@@ -86,7 +77,7 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
         private void UserDisconnected()
         {
             var uid = Encoding.Default.GetString(_client.PacketReader.ReadMessage());
-            var user = Users.FirstOrDefault(x => x.UID == uid);
+            var user = Users.FirstOrDefault(x => x.Uid == uid);
             Application.Current.Dispatcher.Invoke(() => user != null && Users.Remove(user));
         }
     }    

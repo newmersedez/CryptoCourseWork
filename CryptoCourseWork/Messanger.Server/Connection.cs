@@ -1,31 +1,29 @@
 ﻿using System.Net.Sockets;
-using System.Numerics;
 using System.Text;
-using Messanger.Crypto.RC6.Classes;
-using Messanger.Server;
 using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
 {
-    public sealed class Connection
+    internal sealed class Connection
     {
-        public string Username { get; set; }
-        public Guid UID { get; set; }
-        public TcpClient ClientSocket { get; set; }
+        public string Username { get; }
+        public Guid Uid { get; }
+        
+        public TcpClient ClientSocket { get;  }
         private readonly PacketReader _packetReader;
         
         public Connection(TcpClient client)
         {
             ClientSocket = client;
-            UID = Guid.NewGuid();
+            Uid = Guid.NewGuid();
             _packetReader = new PacketReader(ClientSocket.GetStream());
             
-            var opcode = _packetReader.ReadByte();
+            _packetReader.ReadByte();
             Username = Encoding.Default.GetString(_packetReader.ReadMessage());
 
             Console.WriteLine($"[{DateTime.Now}]: Client has connected with the username {Username}\n");
 
-            Task.Run(() => Process());
+            Task.Run(Process);
         }
         
         private void Process()
@@ -46,10 +44,10 @@ namespace Messanger.Server
                         }
 }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    Console.WriteLine($"[{UID.ToString()}]: Disconnected\n");
-                    ServerProgram.BroadcastDisconnect(UID.ToString());
+                    Console.WriteLine($"[{Uid.ToString()}]: Disconnected\n");
+                    ServerProgram.BroadcastDisconnect(Uid.ToString());
                     ClientSocket.Close();
                     break;
                 }

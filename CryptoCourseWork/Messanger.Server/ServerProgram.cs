@@ -1,20 +1,16 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Numerics;
 using System.Text;
-using Messanger.Crypto.RC6.Classes;
 using Messanger.Server.Net.IO;
 
 namespace Messanger.Server
 {
-    public sealed class ServerProgram
+    internal static class ServerProgram
     {
-        private static TcpListener _listener;
-        private static List<Connection> _users;
-
-        [SuppressMessage("ReSharper.DPA", "DPA0001: Memory allocation issues")]
-        private static void Main(string[] args)
+        private static TcpListener? _listener;
+        private static List<Connection>? _users;
+        
+        private static void Main()
         {
             _users = new List<Connection>();
             _listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 7891);
@@ -30,6 +26,8 @@ namespace Messanger.Server
 
         private static void BroadcastConnection()
         {
+            if (_users == null) 
+                return;
             foreach (var user in _users)
             {
                 foreach (var usr in _users)
@@ -37,7 +35,7 @@ namespace Messanger.Server
                     var broadcastPacket = new PacketBuilder();
                     broadcastPacket.WriteOpCode(1);
                     broadcastPacket.WriteMessage(Encoding.Default.GetBytes(usr.Username));
-                    broadcastPacket.WriteMessage(Encoding.Default.GetBytes(usr.UID.ToString()));
+                    broadcastPacket.WriteMessage(Encoding.Default.GetBytes(usr.Uid.ToString()));
                     user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
                 }
             }
@@ -46,6 +44,8 @@ namespace Messanger.Server
         public static void BroadcastMessage(string username,  byte[] message)
         {
             Console.WriteLine($"Broadcasting {message}");
+            if (_users == null) 
+                return;
             foreach (var user in _users)
             {
                 var messagePacket = new PacketBuilder();
@@ -59,16 +59,21 @@ namespace Messanger.Server
         
         public static void BroadcastDisconnect(string uid)
         {
-            var disconnectedUser = _users.Where(x => x.UID.ToString() == uid).FirstOrDefault();
-            _users.Remove(disconnectedUser);
-            foreach (var user in _users)
-            {
-                var broadcastPacket = new PacketBuilder();
-                broadcastPacket.WriteOpCode(15);
-                broadcastPacket.WriteMessage(Encoding.Default.GetBytes(uid));
-                user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
-            }
+            var disconnectedUser = _users?.FirstOrDefault(x => x.Uid.ToString() == uid);
+            if (disconnectedUser == null) 
+                return;
             
+            _users?.Remove(disconnectedUser);
+            if (_users != null)
+            {
+                foreach (var user in _users)
+                {
+                    var broadcastPacket = new PacketBuilder();
+                    broadcastPacket.WriteOpCode(15);
+                    broadcastPacket.WriteMessage(Encoding.Default.GetBytes(uid));
+                    user.ClientSocket.Client.Send(broadcastPacket.GetPacketBytes());
+                }
+            }
             BroadcastMessage(disconnectedUser.Username, Encoding.Default.GetBytes($"Disconnected"));
         }
     }

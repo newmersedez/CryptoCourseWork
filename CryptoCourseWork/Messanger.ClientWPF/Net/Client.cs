@@ -11,11 +11,10 @@ namespace Messanger.ClientWPF.Net
 {
     public sealed class Client
     {
-        private readonly EncryptionMode _mode = EncryptionMode.ECB;
+        private const EncryptionMode Mode = EncryptionMode.ECB;
         private readonly byte[] _initVector = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-        private readonly string _param = "";
-        private readonly byte[] _key;
-        internal CipherContext Algorithm { get; set; }
+        private const string Param = "";
+        internal CipherContext Algorithm { get; private set; }
 
         private readonly TcpClient _client;
         public PacketReader PacketReader;
@@ -51,7 +50,7 @@ namespace Messanger.ClientWPF.Net
                     _client.Client.Send(connectPacket.GetPacketBytes());
                 }
 
-                Algorithm = new CipherContext(_mode, _initVector, _param)
+                Algorithm = new CipherContext(Mode, _initVector, Param)
                 {
                     Encrypter = new RC6(BigInteger.Parse(key).ToByteArray(), 128)
                 };
