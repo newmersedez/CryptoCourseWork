@@ -11,9 +11,9 @@ namespace Messanger.ClientWPF.Net
 {
     public sealed class Client
     {
-        private const EncryptionMode Mode = EncryptionMode.ECB;
-        private readonly byte[] _initVector = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-        private const string Param = "";
+        private readonly EncryptionMode _mode;
+        private readonly byte[] _initVector;
+        private readonly string _param;
         internal CipherContext Algorithm;
 
         private readonly TcpClient _client;
@@ -26,9 +26,23 @@ namespace Messanger.ClientWPF.Net
         
         public Client()
         {
+            _mode = EncryptionMode.ECB;
+            _initVector = GenerateInitVector();
+            _param = "";
             _client = new TcpClient();
         }
-        
+
+        private byte[] GenerateInitVector()
+        {
+            var random = new Random();
+            var initVector = new byte[16];
+            for (var i = 0; i < 16; ++i)
+            {
+                initVector[i] = (byte)random.Next(0, 255);
+            }
+            return initVector;
+        }
+
         public void ConnectToServer(string username, string key)
         {
             if (_client.Connected)
@@ -49,7 +63,7 @@ namespace Messanger.ClientWPF.Net
                 _client.Client.Send(connectPacket.GetPacketBytes());
             }
 
-            Algorithm = new CipherContext(Mode, _initVector, Param)
+            Algorithm = new CipherContext(_mode, _initVector, _param)
             {
                 Encrypter = new RC6(BigInteger.Parse(key).ToByteArray(), 128)
             };

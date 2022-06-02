@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messanger.ClientWPF", "Mess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messanger.Server", "Messanger.Server\Messanger.Server.csproj", "{05DDBA87-14D3-44F7-B9DB-BF4C4CFA26B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messanger.KeysGeneratorWPF", "Messanger.KeysGeneratorWPF\Messanger.KeysGeneratorWPF.csproj", "{6BDC3E81-33FB-47EF-B46B-8C3066F011E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{05DDBA87-14D3-44F7-B9DB-BF4C4CFA26B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05DDBA87-14D3-44F7-B9DB-BF4C4CFA26B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05DDBA87-14D3-44F7-B9DB-BF4C4CFA26B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BDC3E81-33FB-47EF-B46B-8C3066F011E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BDC3E81-33FB-47EF-B46B-8C3066F011E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BDC3E81-33FB-47EF-B46B-8C3066F011E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BDC3E81-33FB-47EF-B46B-8C3066F011E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

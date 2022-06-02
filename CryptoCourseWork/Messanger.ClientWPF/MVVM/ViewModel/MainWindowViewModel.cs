@@ -16,10 +16,7 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
 {
     public sealed class MainWindowViewModel : ViewModelBase
     {
-        //Key = 1334440654591915542993625911497130241
-
         private const string UserFiles = "\\Messanger.ClientWPF\\UserFiles\\";
-        
         private readonly Client _client;
 
         public string Username { get; set; }
