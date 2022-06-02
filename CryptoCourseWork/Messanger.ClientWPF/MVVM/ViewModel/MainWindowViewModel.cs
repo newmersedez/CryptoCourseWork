@@ -73,10 +73,30 @@ namespace Messanger.ClientWPF.MVVM.ViewModel
                 },
                 _ => !string.IsNullOrEmpty(Message) && _client.IsConnectedToServer());
             OpenServerFilesCommand = new RelayCommand(
-                _ => OpenServerFileDialog(),
+                _ =>
+                {
+                    try
+                    {
+                        OpenServerFileDialog();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show($"Failed to open server files");
+                    }
+                },
                 _ => _client.IsConnectedToServer());
             OpenClientFilesCommand = new RelayCommand(
-                _ => OpenClientFileDialog(),
+                _ =>
+                {
+                    try
+                    {
+                        OpenClientFileDialog();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($"Failed to open file dialog");
+                    }
+                },
                 _ => _client.IsConnectedToServer());
         }
 

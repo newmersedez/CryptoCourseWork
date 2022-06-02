@@ -71,7 +71,7 @@ namespace Messanger.Crypto.Benaloh.Utils
         {
             var rndGenerator = RandomNumberGenerator.Create();
             var bytes = right.ToByteArray();
-            //TODO: старший и младший бит поставить в 1
+
             BigInteger r;
             do
             {

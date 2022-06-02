@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Messanger.ClientWPF.MVVM.Model;
+﻿namespace Messanger.ClientWPF.MVVM.Model;
 
 public class UserModel
 {
