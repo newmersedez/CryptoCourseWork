@@ -113,21 +113,7 @@ namespace Messanger.Crypto.Benaloh.Classes
             var right = BigInteger.ModPow(u, _keys.r, _keys.n);
             return BigInteger.Multiply(left, right) % _keys.n;
         }
-
-        public BigInteger EncryptWithKey(BigInteger message, BigInteger y, BigInteger r, BigInteger n)
-        {
-            BigInteger u;
-            while (true)
-            {
-                u = BenalohUtils.GenerateRandomInteger(2, n - 1);
-                if (BigInteger.GreatestCommonDivisor(u, n) == 1)
-                    break;
-            }
-            var left = BigInteger.ModPow(y, message, n);
-            var right = BigInteger.ModPow(u, r, n);
-            return BigInteger.Multiply(left, right) % n;
-        }
-
+        
         public BigInteger Decrypt(BigInteger message)
         {
             BigInteger md = 0;

@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net.Sockets;
 using System.Text;
 using Messanger.Server.Net.IO;
 
@@ -20,12 +21,10 @@ namespace Messanger.Server
             
             _packetReader.ReadByte();
             Username = Encoding.Default.GetString(_packetReader.ReadMessage());
-
-            Console.WriteLine($"[{DateTime.Now}]: Client has connected with the username {Username}\n");
-
             Task.Run(Process);
         }
         
+        [SuppressMessage("ReSharper.DPA", "DPA0003: Excessive memory allocations in LOH", MessageId = "type: System.Byte[]; size: 1820MB")]
         private void Process()
         {
             while (true)
@@ -38,15 +37,35 @@ namespace Messanger.Server
                         case 5:
                         {
                             var message = _packetReader.ReadMessage();
-                            Console.Write($"[{DateTime.Now}] : Message received {Encoding.Default.GetString(message)}\n");
-                            ServerProgram.BroadcastMessage(Username, message);
+                            ServerProgram.BroadcastMessage(Encoding.Default.GetBytes(Username), message);
                             break;
                         }
-}
+
+                        case 10:
+                        {
+                            var filename = _packetReader.ReadMessage();
+                            var text = _packetReader.ReadMessage();
+                            
+                            var directory = new DirectoryInfo(Directory.GetCurrentDirectory());
+                            while (directory != null && !directory.GetFiles("*.sln").Any())
+                            {
+                                directory = directory.Parent;
+                            }
+
+                            var fullPath = directory + ServerProgram.ServerFiles + Encoding.Default.GetString(filename);
+                            File.WriteAllBytes(fullPath, text);
+                            break;
+                        }
+                        case 20:
+                        {
+                            var filename = _packetReader.ReadMessage();
+                            ServerProgram.BroadcastFile(ClientSocket, filename);
+                            break;
+                        }
+                    }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine($"[{Uid.ToString()}]: Disconnected\n");
                     ServerProgram.BroadcastDisconnect(Uid.ToString());
                     ClientSocket.Close();
                     break;

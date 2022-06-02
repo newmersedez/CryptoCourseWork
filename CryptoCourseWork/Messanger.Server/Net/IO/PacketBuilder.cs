@@ -17,8 +17,8 @@
         public void WriteMessage(byte[] message)
         {
             var messageLength = message.Length;
-            _ms.Write(BitConverter.GetBytes(messageLength));
-            _ms.Write(message);
+            _ms.WriteAsync(BitConverter.GetBytes(messageLength));
+            _ms.WriteAsync(message);
         }
         
         public byte[] GetPacketBytes()

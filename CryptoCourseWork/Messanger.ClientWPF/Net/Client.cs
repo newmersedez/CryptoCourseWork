@@ -1,9 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Net.Sockets;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using Messanger.Crypto.RC6.Classes;
 using Messanger.Server.Net.IO;
 
@@ -14,7 +14,7 @@ namespace Messanger.ClientWPF.Net
         private const EncryptionMode Mode = EncryptionMode.ECB;
         private readonly byte[] _initVector = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
         private const string Param = "";
-        internal CipherContext Algorithm { get; private set; }
+        internal CipherContext Algorithm;
 
         private readonly TcpClient _client;
         public PacketReader PacketReader;
@@ -22,6 +22,7 @@ namespace Messanger.ClientWPF.Net
         public event Action ConnectedEvent;
         public event Action MessageReceivedEvent;
         public event Action UserDisconnectedEvent;
+        public event Action FileReceivedEvent;
         
         public Client()
         {
@@ -33,34 +34,27 @@ namespace Messanger.ClientWPF.Net
             if (_client.Connected)
                 return;
             
-            try
+            var byteKey = BigInteger.Parse(key).ToByteArray();
+            if (byteKey.Length * 8 != 128)
+                throw new ArgumentException("Incorrect session key");
+
+            _client.ConnectAsync("127.0.0.1", 7891);
+            PacketReader = new PacketReader(_client.GetStream());
+
+            if (!string.IsNullOrEmpty(username))
             {
-                var byteKey = BigInteger.Parse(key).ToByteArray();
-                if (byteKey.Length * 8 != 128)
-                    throw new ArgumentException("Incorrect session key");
-
-                _client.Connect("127.0.0.1", 7891);
-                PacketReader = new PacketReader(_client.GetStream());
-
-                if (!string.IsNullOrEmpty(username))
-                {
-                    var connectPacket = new PacketBuilder();
-                    connectPacket.WriteOpCode(0);
-                    connectPacket.WriteMessage(Encoding.Default.GetBytes(username));
-                    _client.Client.Send(connectPacket.GetPacketBytes());
-                }
-
-                Algorithm = new CipherContext(Mode, _initVector, Param)
-                {
-                    Encrypter = new RC6(BigInteger.Parse(key).ToByteArray(), 128)
-                };
-                
-                ReadPackets();
+                var connectPacket = new PacketBuilder();
+                connectPacket.WriteOpCode(0);
+                connectPacket.WriteMessage(Encoding.Default.GetBytes(username));
+                _client.Client.Send(connectPacket.GetPacketBytes());
             }
-            catch (Exception e)
+
+            Algorithm = new CipherContext(Mode, _initVector, Param)
             {
-                MessageBox.Show($"Failed to connect to the server ({e})");
-            }
+                Encrypter = new RC6(BigInteger.Parse(key).ToByteArray(), 128)
+            };
+            
+            ReadPackets();
         }
 
         public bool IsConnectedToServer()
@@ -83,11 +77,13 @@ namespace Messanger.ClientWPF.Net
                         case 5:
                             MessageReceivedEvent?.Invoke();
                             break;
+                        case 10:
+                            break;
                         case 15:
                             UserDisconnectedEvent?.Invoke();
                             break;
-                        default:
-                            Console.WriteLine("ah yes...");
+                        case 20:
+                            FileReceivedEvent?.Invoke();
                             break;
                     }
                 }
@@ -99,6 +95,28 @@ namespace Messanger.ClientWPF.Net
             var messagePacket = new PacketBuilder();
             messagePacket.WriteOpCode(5);
             messagePacket.WriteMessage(Algorithm.Encrypt(Encoding.Default.GetBytes(message)));
+            _client.Client.Send(messagePacket.GetPacketBytes());
+        }
+
+        public void SendFileToServer(string fullPath)
+        {
+            var messagePacket = new PacketBuilder();
+            messagePacket.WriteOpCode(10);
+
+            var index = fullPath.LastIndexOf('\\');
+            var filename = fullPath.Substring(index + 1, fullPath.Length - index - 1);
+            messagePacket.WriteMessage(Encoding.Default.GetBytes(filename));
+
+            var text = File.ReadAllBytes(fullPath);
+            messagePacket.WriteMessage(Algorithm.Encrypt(text));
+            _client.Client.Send(messagePacket.GetPacketBytes());
+        }
+
+        public void GetFileFromServer(string filename)
+        {
+            var messagePacket = new PacketBuilder();
+            messagePacket.WriteOpCode(20);
+            messagePacket.WriteMessage(Encoding.Default.GetBytes(filename));
             _client.Client.Send(messagePacket.GetPacketBytes());
         }
     }   

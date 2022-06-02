@@ -7,7 +7,7 @@ namespace Messanger.ClientWPF.Themes;
 
 public partial class ServerFilesDialog
 {
-    private const string ServerFiles = "\\Messanger.Server\\Files";
+    private const string ServerFiles = "\\Messanger.Server\\Files\\";
 
     public string FileName => (string) ServerFilesListView.SelectedItem;
     public RelayCommand CancelCommand { get; }
